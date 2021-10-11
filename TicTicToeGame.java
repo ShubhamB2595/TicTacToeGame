@@ -1,11 +1,12 @@
 package TicTacToeGame;	//correction
+import java.util.Scanner;
 
 public class TicTicToeGame {
 	static char board[] = new char[10];
 	//here
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		createBoard();
+	//	createBoard();
 		chooseLetter();
 		
 	}
@@ -20,16 +21,23 @@ public class TicTicToeGame {
 		char player = ' ';
 		char computer = ' ';
 		
-		int letter = (int) Math.floor(Math.random() * 10 % 2);
-		if(letter == 1) {
-			System.out.println("Player selected x");
-			player = 'x';
+		Scanner input = new Scanner(System.in);
+		//int letter = (int) Math.floor(Math.random() * 10 % 2);
+		System.out.println("Player please select letter: x or o ");
+		char letter = input.next().charAt(0);
+		if(letter == 'x' || letter == 'X') {
+			System.out.println("Player selected: " + letter);
+			player = letter;
 			computer = 'o';
 		}
-		else {
-			System.out.println("Player selected o");
+		else if (letter == 'o' || letter == 'O') {
+			System.out.println("Player selected: " + letter);
 			player = 'o';
-			computer = 'x';
+			computer = letter;
+		}
+		else {
+			System.out.println("Player entered: " + letter);
+			System.out.println("Please enter letter only X or O ");
 		}
 	}
 	
